@@ -5,6 +5,9 @@ class database extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('database_model');
+        if($this->session->userdata('role')!='admin'){
+            redirect('home');
+        }
     }
 
     public function index()
@@ -19,6 +22,14 @@ class database extends CI_Controller {
         $data['tampilMenu'] = $this->database_model->getAllMenu();
         $this->load->view('database/index');
         $this->load->view('database/dataMenu',$data);
+		$this->load->view('database/footer');
+    }
+
+    public function dataRiwayatPenjualan()
+    {
+        $data['tampilRiwayat'] = $this->database_model->getAllRiwayat();
+        $this->load->view('database/index');
+        $this->load->view('database/dataRiwayatPenjualan',$data);
 		$this->load->view('database/footer');
     }
 
@@ -99,6 +110,11 @@ class database extends CI_Controller {
 
     public function deleteMenu($id){
         $this->database_model->hapusMenu($id);
+        echo '<script>alert("Berhasil Hapus Data."); document.location="'.base_url().'database";</script>';
+    }
+
+    public function deleteRiwayatPenjualan($id){
+        $this->database_model->hapusRiwayatPenjualan($id);
         echo '<script>alert("Berhasil Hapus Data."); document.location="'.base_url().'database";</script>';
     }
 

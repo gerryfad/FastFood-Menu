@@ -25,7 +25,7 @@
                 <tr>
                     <td><?= $i; ?></td>
                     <td><?= $row['nama']; ?></td>
-                    <td><?=  $row['harga']; ?></td>
+                    <td><?=  rupiah($row['harga']); ?></td>
                     <td><?= $row['ukuran']; ?></td>
                     <td><?= $row['kategori']; ?></td>
                     <td><img src="<?= base_url(); ?>upload/<?= $row['gambar']; ?>" width="70"></td>

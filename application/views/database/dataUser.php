@@ -25,7 +25,7 @@
                         <td style="width:110px;"><?= $row['username']; ?></td>
                         <td style="width:110px;"><?= $row['email']; ?></td>
                         <td style="width:110px;"><?= $row['password']; ?></td>
-                        <td style="width:110px;"><?= $row['saldo']; ?></td>
+                        <td style="width:110px;"><?= rupiah($row['saldo']); ?></td>
                         <td style="width:110px;"><?= $row['role']; ?></td>
                         <td style="width:110px;">
                             <a href="<?= base_url(); ?>database/editUser/<?= $row['id']; ?>" class="btn btn-secondary btn-sm">Edit</a>

@@ -27,7 +27,7 @@
             <div class="navbar nav_title" style="border: 0;">
             <center>
             
-            <a href="<?= base_url(); ?>database/" ><span><img style="margin-left: 45px;margin-right: auto;margin-top: 7px;width:130px;" src="<?= base_url(); ?>assets/images/logo2.png" alt=""></span></a>
+            <a href="<?= base_url(); ?>" ><span><img style="margin-left: 45px;margin-right: auto;margin-top: 7px;width:130px;" src="<?= base_url(); ?>assets/images/logo2.png" alt=""></span></a>
             </center>
             </div>
 
@@ -57,6 +57,7 @@
                     <ul class="nav child_menu">
                       <li><a href="<?= base_url(); ?>database/dataMenu">Data Menu</a></li>
                       <li><a href="<?= base_url(); ?>database/dataUser">Data User</a></li>
+                      <li><a href="<?= base_url(); ?>database/dataRiwayatPenjualan">Data Riwayat Penjualan</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Form <span class="fa fa-chevron-down"></span></a>
@@ -86,7 +87,7 @@
                     <img src="<?= base_url(); ?>assets/images/user.png" alt="">Admin
                   </a>
                   <div style="margin-top:23px;"class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item"  href="index.php"> Home</a>
+                    <a class="dropdown-item"  href="<?= base_url(); ?>"> Home</a>
                   </div>
                 </li>
               </ul>

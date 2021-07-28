@@ -33,9 +33,9 @@
 				<div class="col-md-6 col-sm-6">
 					<select name="kategori" class="form-control" required>
 						<option value="<?= $dataMenu['kategori']; ?>"><?= $dataMenu['kategori']; ?></option>
-						<option value="Standard">Standard</option>
-						<option value="New">New</option>
-						<option value="Best Seller">Best Seller</option>
+						<option value="2">Standard</option>
+						<option value="3">New</option>
+						<option value="1">Best Seller</option>
 					</select>
 				</div>
 			</div>

@@ -4,6 +4,7 @@ class database_model extends CI_model {
 
     public function getAllMenu()
     {
+        $this->db->join('kategori_menu', 'kategori_menu.id_kategori = menu.kategori');
         $query = $this->db->get('menu');
         return $query->result_array();
     }
@@ -11,6 +12,12 @@ class database_model extends CI_model {
     public function getAllUser()
     {
         $query = $this->db->get('users');
+        return $query->result_array();
+    }
+
+    public function getAllRiwayat()
+    {
+        $query = $this->db->get('riwayat_penjualan');
         return $query->result_array();
     }
 
@@ -37,6 +44,19 @@ class database_model extends CI_model {
     
         $this->db->insert('users', $data);
     }
+
+    public function setRiwayat()
+    {
+        $data = array(
+            'id' => NULL,
+            'tanggal_beli' => $this->input->post('tanggal',true),
+            'Username' => $this->input->post('username',true),
+            'total_harga' => $this->input->post('harga',true),
+        );
+    
+        $this->db->insert('riwayat_penjualan', $data);
+    }
+
     public function setMenu()
     {
         $config['upload_path']          = './upload/';
@@ -102,12 +122,37 @@ class database_model extends CI_model {
         return $this->db->update('users', $data);
     }
 
+    public function updateSaldo($username,$saldo){
+        
+        $data = array(
+            'saldo' => $saldo
+        );
+    
+        $this->db->where('username', $username);
+        return $this->db->update('users', $data);
+    }
+
+    public function potongSaldo($username,$saldo){
+        
+        $data = array(
+            'saldo' => $saldo
+        );
+    
+        $this->db->where('username', $username);
+        return $this->db->update('users', $data);
+    }
+
     public function hapusMenu($id){
         $this->db->where('id', $id);
         $this->db->delete('menu');
     }
 
     public function hapusUser($id){
+        $this->db->where('id', $id);
+        $this->db->delete('users');
+    }
+
+    public function hapusRiwayatPenjualan($id){
         $this->db->where('id', $id);
         $this->db->delete('users');
     }
